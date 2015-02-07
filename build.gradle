@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin:'application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+run {
+  main = "Driver"
+}
+
+test {
+}
