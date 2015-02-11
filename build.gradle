@@ -11,6 +11,7 @@ dependencies {
 
 run {
   main = "Driver"
+  standardInput = System.in
 }
 
 test {

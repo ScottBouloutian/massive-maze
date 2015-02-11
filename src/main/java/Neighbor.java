@@ -1,19 +1,23 @@
 public class Neighbor {
-    private int parent;
+    private Cell parent;
     private Direction direction;
-    private int child;
+    private Cell child;
 
-    public Neighbor(int parent, Direction direction, int child) {
+    public Neighbor(Cell parent, Direction direction, Cell child) {
         this.parent = parent;
         this.direction = direction;
         this.child = child;
+    }
+
+    public Cell getParent() {
+        return parent;
     }
 
     public Direction getDirection() {
         return direction;
     }
 
-    public int getChild() {
+    public Cell getChild() {
         return child;
     }
 

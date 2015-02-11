@@ -13,16 +13,13 @@ import org.junit.runners.JUnit4;
  */
 public class MazeEngineTest {
 
-    @Before
-    public void before() {
+    @Test
+    public void constructor_sets_maze() {
+        MazeEngine engine = new MazeEngine(10);
+        assertEquals("the maze should be set correctly",new Maze(10),engine.getMaze());
+        engine = new MazeEngine(100);
+        assertEquals("the maze should be set correctly",new Maze(100),engine.getMaze());
     }
 
-    @Test
-    public void cellSearchTest() {
-    }
-
-    @Test
-    public void getNeighborsTest() {
-    }
 
 }
