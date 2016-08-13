@@ -1,5 +1,23 @@
-apply plugin: 'java'
 apply plugin:'application'
+apply plugin: 'c'
+apply plugin: 'java'
+
+mainClassName = "Driver"
+
+model {
+    components {
+        maze_render(NativeExecutableSpec) {
+            sources {
+                c {
+                    source {
+                        srcDir "src/main/c"
+                        include "**/*.c"
+                    }
+                }
+            }
+        }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -10,9 +28,12 @@ dependencies {
 }
 
 run {
-  main = "Driver"
-  standardInput = System.in
+    standardInput = System.in
+    args = [
+        (project.hasProperty('size') ? size : '')
+    ]
 }
 
-test {
+task generate(dependsOn: run, type: Exec) {
+    commandLine 'build/exe/maze_render/maze_render', 'maze.dat', 'maze.bmp'
 }
