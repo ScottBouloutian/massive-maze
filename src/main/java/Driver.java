@@ -1,23 +1,12 @@
-import java.util.Scanner;
-
 public class Driver {
 
     public static void main(String[] args) {
         System.out.println("Welcome to the maze generator!");
-        Scanner scanner = new Scanner(System.in);
-        int size;
-        MazeEngine engine;
-        while(true){
-            System.out.println("What size maze would you like to generate?");
-            size = scanner.nextInt();
-            engine = new MazeEngine(size);
-            long startTime = System.currentTimeMillis();
-            engine.generateMaze();
-            long endTime = System.currentTimeMillis();
-            //engine.drawMaze();
-            float time = (float)(endTime - startTime)/1000;
-            System.out.println("Maze generated in: " + time + " seconds.");
-        }
+        int mazeSize = (args.length >= 1 && !args[0].isEmpty()) ? Integer.parseInt(args[0]) : 30;
+        System.out.println("Generating a " + mazeSize + "x" + mazeSize + " maze");
+        MazeEngine engine = new MazeEngine(mazeSize);
+        engine.generateMaze();
+        engine.saveMaze("maze.dat");
     }
 
 }
