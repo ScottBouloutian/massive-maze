@@ -1,0 +1,3 @@
+rootProject.name = 'maze-generation'
+include 'kruskal_generation'
+include 'maze_render'

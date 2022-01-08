@@ -3,9 +3,9 @@
 #include <math.h>
 #include <stdbool.h>
 
-const int BITMAP_FILE_HEADER_SIZE = 14;
-const int BITMAP_INFO_HEADER_SIZE = 40;
-const int BITMAP_COLOR_TABLE_SIZE = 8;
+#define BITMAP_FILE_HEADER_SIZE 14
+#define BITMAP_INFO_HEADER_SIZE 40
+#define BITMAP_COLOR_TABLE_SIZE 8
 
 unsigned char *getBitmapFileHeader(int);
 unsigned char *getBitmapInfoHeader(int, int);
